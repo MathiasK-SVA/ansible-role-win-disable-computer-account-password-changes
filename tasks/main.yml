@@ -1,0 +1,13 @@
+---
+# tasks file for ansible-role-win-disable-computer-account-password-changes
+
+- name: Disable computer account password changes
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+    name: DisablePasswordChange
+    data: __disable_computer_password_changes|int
+    type: dword
+  when: __disable_computer_password_changes is defined
+
+- debug:
+    msg: 'Computer password changes set to {{ __disable_computer_password_changes }}'

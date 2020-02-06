@@ -1,0 +1,4 @@
+---
+# vars file for ansible-role-win-disable-computer-account-password-changes
+
+__disable_computer_password_changes: true
